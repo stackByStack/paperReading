@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="4f8885f0">
+        <description>Created after removal of "This is the first topic" from Help Instance</description>
+        <accepts>Default-topic.html</accepts>
+    </rule>
+    <rule id="30848e18">
+        <description>Created after removal of "Starter-Classics" from Paper Reading</description>
+        <accepts>Starter-Classics.html</accepts>
+    </rule>
+    <rule id="49189a25">
+        <description>Created after removal of "BERT" from Paper Reading</description>
+        <accepts>BERT.html</accepts>
+    </rule>
+</rules>
