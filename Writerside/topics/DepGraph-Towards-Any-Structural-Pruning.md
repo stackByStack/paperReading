@@ -23,5 +23,18 @@ The most prominent obstacle towards this goal lies in the structural coupling, w
 - CNN Quantization
 <a href="https://ieeexplore.ieee.org/document/7780890/"></a>
 
+### pruning schemes
 
+#### structural pruning
+
+- Centripetal SGD; Filters cluster in CNN
+<a href="https://arxiv.org/pdf/1904.03837.pdf"></a>
+
+- Filter Pruning
+<a href="https://arxiv.org/abs/1608.08710"></a>
+
+#### unstructured pruning
+
+- layer-wise pruning
+<a href="https://arxiv.org/abs/1705.07565"></a>
 
