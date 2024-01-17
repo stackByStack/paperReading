@@ -37,4 +37,30 @@ The most prominent obstacle towards this goal lies in the structural coupling, w
 
 - layer-wise pruning
 <a href="https://arxiv.org/abs/1705.07565"></a>
+- magnitude-based pruning
+<a href="https://arxiv.org/abs/2002.04809"></a>
+
+> The core difference between the two lies in that, 
+> structural pruning changes the structure of neural networks by physically removing grouped parameters, 
+> 
+> while unstructured pruning conducts zeroing on partial weights without modification to the network structure.
+
+> In this paper, we strive for a generic scheme towards any structural pruning, where structural pruning over arbitrary network architectures is executed in an automatic fashion, 
+> 
+> At the heart of our approach is to estimate the Dependency Graph (DepGraph), which explicitly models the interdependency between paired layers in neural networks.
+> 
+
+## Related Work
+
+### Structural and Unstructured Pruning
+
+In practice, unstructured pruning, in particular, is straightforward to implement and inherently adaptable to various networks. 
+
+However, it often necessitates specialized AI **accelerators** or software for model acceleration [15]. 
+
+Conversely, structural pruning improves the inference overhead by physically removing parameters from networks, thereby finding a wider domain of applications [29, 38]. 
+
+In the literature, The design space of pruning algorithms encompasses a range of aspects, including **pruning schemes** [21, 39], **parameter selection** [20, 43, 44], **layer sparsity** [27, 49] and **training techniques** [47, 58].
+
+
 
