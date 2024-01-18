@@ -62,5 +62,64 @@ Conversely, structural pruning improves the inference overhead by physically rem
 
 In the literature, The design space of pruning algorithms encompasses a range of aspects, including **pruning schemes** [21, 39], **parameter selection** [20, 43, 44], **layer sparsity** [27, 49] and **training techniques** [47, 58].
 
+### Pruning Grouped Parameters
 
+
+## Method
+### Dependency in Neural Networks
+
+- (a) Basic dependency 
+- (b) Residual dependency 
+- (c) Concatenation dependency  
+- (d) Reduction dependency
+
+### Dependence Graph
+Find a grouping matrix 
+```tex
+G \in \mathbb{R}^{L \times L}
+```
+with
+
+```tex 
+G_{ij} = 1
+```
+indicating that the presence of **dependency** between i-th layer and j-th layer.
+
+In this matrix, G_ij is not only determined by the i-th and j-th layers but also affected by those **intermediate layers** between them.
+
+This recursive process (inferred from w1 ⇔ w2 and w2 ⇔ w3) ultimately ends with a transitive relation, w1 ⇔ w2 ⇔ w3.
+In this case, we only need two dependencies to describe the relations in group g.
+
+Thus, it can be compressed into a more compact form with fewer edges while retaining the same information.
+
+Formally, D is constructed such that, for all G_ij = 1, there exists **a path in D between vertex i and j**. Therefore, Gij can be derived by examing the presence of a path between vertices i and j in D.
+
+### network decomposition
+
+> It seems like there are challenges in building a dependency graph at the layer level, particularly due to certain basic layers, such as fully-connected layers, having **different pruning schemes**. The mentioned schemes, like w[k, :] and w[:, k], compress **the dimensions of inputs and outputs**. Additionally, **non-parameterized operations like skip connections** also impact the dependency between layers.
+
+To remedy these issues, we propose a new notation to decompose a network F(x; w) into finer and more basic components, denoted as F = {f1, f2, ..., fL}
+
+where each component f refers to either a **parameterized layer** such as convolution or a **non-parameterized operation** such as residual adding.
+
+### Dependency Modeling
+
+![image_20240118_1618.png](image_20240118_1618.png)
+
+![image_20240118_162100.png](image_20240118_162100.png)
+
+### Group-level Pruning
+Specifically, for each parameter w with K prunable dimensions indexed by w[k], we introduce a simple regularization term for sparse training, defined as:
+
+![image_20240118_164100.png](image_20240118_164100.png)
+
+![image_20240118_164200.png](image_20240118_164200.png)
+
+`g` is a parameter group consisting of multiple parameters. `k` is a dimension prunable.
+
+After sparse training, we further use a simple relative score
+
+![image_20240118_171200.png](image_20240118_171200.png)
+
+to identify and remove unimportant parameters.
 
