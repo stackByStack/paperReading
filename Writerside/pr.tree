@@ -8,15 +8,17 @@
 
     <toc-element topic="Overview.md"/>
     <toc-element topic="Pruning-Quantization.md">
-        <toc-element topic="Inception-Family.md"/>
-        <toc-element topic="DepGraph-Towards-Any-Structural-Pruning.md">
-        </toc-element>
+        <toc-element topic="DepGraph-Towards-Any-Structural-Pruning.md"/>
         <toc-element topic="Soft-Filter-Pruning-for-Accelerating-Deep-Convolutional-Neural-Networks.md"/>
+        <toc-element topic="Inception-Family.md"/>
+        <toc-element
+                topic="Filter-Pruning-via-Geometric-Median-for-Deep-Convolutional-Neural-Networks-Acceleration.md"/>
     </toc-element>
     <toc-element topic="Classics.md">
         <toc-element topic="BERT.md"/>
     </toc-element>
     <toc-element topic="Trick.md">
+        <toc-element topic="Group-Shuffle.md"/>
         <toc-element topic="BatchNorm.md"/>
     </toc-element>
 </instance-profile>
