@@ -8,6 +8,7 @@
 
     <toc-element topic="Overview.md"/>
     <toc-element topic="Pruning-Quantization.md">
+        <toc-element topic="ResRep-Lossless-CNN-Pruning-via-Decoupling-Remembering-and-Forgetting.md"/>
         <toc-element topic="DepGraph-Towards-Any-Structural-Pruning.md"/>
         <toc-element topic="Soft-Filter-Pruning-for-Accelerating-Deep-Convolutional-Neural-Networks.md"/>
         <toc-element topic="Inception-Family.md"/>
