@@ -1,4 +1,5 @@
 # Filter Pruning via Geometric Median for Deep Convolutional Neural Networks Acceleration
+<show-structure for="chapter,procedure" depth="3"/>
 
 ## Abstract
 Previous works utilized **smaller-norm-less-important** criterion to prune filters with smaller norm values in a convolutional neural network.

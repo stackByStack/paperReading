@@ -1,5 +1,7 @@
 # ResRep: Lossless CNN Pruning via Decoupling Remembering and Forgetting
 
+<show-structure for="chapter,procedure" depth="3"/>
+
 ## Abstract
 
 - We propose to re-parameterize a CNN into the remembering parts and forgetting parts, 
@@ -95,6 +97,41 @@ Bi-real net: Enhancing the performance of 1-bit cnns with improved representatio
 > For example, 5 bits and normalization information could be enough to represent original distribution.
 > 
 
+![image_20240126_10520.png](image_20240126_10520.png)
+
+![image_20240126_110500.png](image_20240126_110500.png)
+
+![image_20240126_111900.png](image_20240126_111900.png)
+
+![image_20240126_113300.png](image_20240126_113300.png)
+
+```tex
+m_\theta
+```
+is used to select which quantized component could be better to **fit the original distribution.**
+
+### Knowledge Distillation
+#### Geometry-Aware Distillation for Indoor Semantic Segmentation
+
+![image_20240126_181200.png](image_20240126_181200.png)
+
+![image_20240126_181300.png](image_20240126_181300.png)
+
+![image_20240126_181400.png](image_20240126_181400.png)
+
+> Depth Embedding and pyramid of feature fusion to facilitate distillation
+
+#### Structured Knowledge Distillation for Semantic Segmentation
+- Teacher and Student
+- pair-wise distillation
+  - learn association between each pair of pixels
+- pixel-wise distillation
+  - simply learn classification results of each pixel
+- holistic distillation
+  - Like GAN, with a discriminator network
+
+#### Unifying Heterogeneous Classifiers with Distillation
+- Merge Heterogeneous Classifiers into a single one.
 
 
 
