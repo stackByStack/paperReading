@@ -26,9 +26,9 @@ graph TD
 
 ## Abstract
 
-- We propose to re-parameterize a CNN into the remembering parts and forgetting parts, 
+- We propose to re-parameterize CNN into remembering parts and forgetting parts, 
   - where the former learn to maintain the performance 
-  - and the latter learn to prune
+  - and the latter learns to prune
 - Via training with regular **SGD** on the **former** but **a novel update rule with penalty gradients** on the latter, we realize **structured sparsity**.
 - Then we equivalently **merge** the remembering and forgetting parts into the original architecture with narrower layers. 
 - In this sense, ResRep can be viewed as a successful application of _Structural_ **Re-parameterization**
@@ -42,11 +42,11 @@ graph TD
 
 ![image_20240125_104700.png](image_20240125_104700.png)
 
-To overcome the drawbacks of the two paradigms discussed above, 
+To overcome the drawbacks of the two paradigms discussed above
 - we intend to explicitly control the
 eventual compression ratio **via end-to-end training** 
 - by directly altering the **gradient flow** of momentum
-SGD to **deviate the training direction** in order to achieve a **high compression ratio** as well as maintain
+SGD to **deviate the training direction** in order to achieve a **high-compression ratio** as well as maintain
 the accuracy
 
 ##### Approximation metrics
@@ -119,7 +119,7 @@ Bi-real net: Enhancing the performance of 1-bit cnns with improved representatio
 - Both linear and nonlinear
   quantization thus provide precision where **it is not actually required** in the case of a pruned CNN
 - We address both issues by proposing a new
-  approach to quantize parameters in CNNs which we call **focused quantization** (FQ) that **mixes** shift
+  approach to quantizing parameters in CNNs which we call **focused quantization** (FQ) that **mixes** shift
   and re-centralized quantization methods.
 
 
@@ -206,7 +206,78 @@ ResRep comprises two key components: **Convolutional Re-parameterization** (Rep,
 ## Related Works
 
 ### The lottery ticket hypothesis: Finding sparse, trainable neural networks
+this hypothesis suggests that when training a large neural network,
+the successful training of the model is equivalent to finding a small,
+"winning" subnetwork (termed as the 'lottery ticket') within the large network.
+These subnetworks are **sparse**, i.e., only a certain small fraction of the parameters is non-zero.
 
+### Pruning-then-Fine-tuning
+Some methods repeat pruning-finetuning iterations to measure the importance and prune progressively.
+
+A major drawback is that the pruned models can be easily trapped into **bad local minima,**
+and sometimes cannot even reach a similar level of accuracy with a counterpart of the same structure
+trained from scratch.
+
+This discovery highlights the significance of perfect pruning, which **eliminates** the need for fine-tuning.
+
+## ResRep for Lossless Channel Pruning
+
+### Convolutional Re-parameterization
+
+For every conv layer together with the following BN (if any) we desire to prune,
+which are referred to as the target layers, we append a **compactor** (1 × 1 conv) with kernel 
+```tex
+Q ∈ \mathbb{R}^{D×D}
+```
+
+Given a well-trained model W,
+we construct a **re-parameterized model Wˆ** by initializing the conv-BN as the original weights of W and **Q as an identity matrix**,
+so that the re-parameterized model produces the identical outputs as the original.
+
+![image_20240128_124300.png](image_20240128_124300.png)
+
+Details about how to cal them could be found in the paper.
+
+### Gradient Resetting
+
+We describe how to produce structured sparsity in compactors while maintaining the accuracy,
+beginning
+by discussing the **traditional usage** of penalty on a specific kernel K to make the magnitude of some channels smaller,
+i.e. 
+
+```tex
+||K_{P,:,:,:}|| → 0
+```
+
+we denote a specific channel in K by 
+
+```tex
+F (j) = K_{j,:,:,:}.
+```
+
+**competence-based importance evaluation**
+
+![image_20240128_174200.png](image_20240128_174200.png)
+
+#### Dilemma Inside
+- Problem A: The penalty **deviates** the parameters of every channel from the optima of the objective function.
+  - Notably, a **mild** deviation may not bring negative effects; e.g., L2 regularization can also be viewed as a mild deviation. 
+  - However, with a **strong** penalty, though some channels are zeroed out for pruning, the remaining channels are also made **too small to maintain the representational capacity**, which is an undesired side effect.
+- Problem B: With mild penalty for the **high resistance**, we **cannot** achieve **high prunability**, because most of the channels merely become closer to 0 than they used to be, but **not close enough** for perfect pruning.
+
+#### Solution
+
+We propose
+to achieve high prunability with a mild penalty by **resetting** the gradients derived from the objective function.
+
+![image_20240128_175600.png](image_20240128_175600.png)
+
+### The Remembering Parts Remember Always, the Forgetting Parts Forget Progressively
+To combine Res with Rep, we need to decide which channels of Q to be zeroed out.
+
+![image_20240128_183300.png](image_20240128_183300.png)
+
+![image_20240128_183900.png](image_20240128_183900.png)
 
 
 
