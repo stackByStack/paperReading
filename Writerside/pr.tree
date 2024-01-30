@@ -14,8 +14,11 @@
         <toc-element
                 topic="Filter-Pruning-via-Geometric-Median-for-Deep-Convolutional-Neural-Networks-Acceleration.md"/>
         <toc-element topic="ResRep-Lossless-CNN-Pruning-via-Decoupling-Remembering-and-Forgetting.md"/>
+        <toc-element topic="RepVGG-Making-VGG-style-ConvNets-Great-Again.md"/>
     </toc-element>
     <toc-element topic="Classics.md">
+        <toc-element
+                topic="Comparative-Analysis-of-Classic-Convolutional-Neural-Networks-VGG-Inception-ResNet-and-DenseNet.md"/>
         <toc-element topic="BERT.md"/>
     </toc-element>
     <toc-element topic="Trick.md">
