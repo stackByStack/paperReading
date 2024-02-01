@@ -47,6 +47,15 @@ the model on image classification in supervised fashion.
 
 ![image_20240201_185400.png](image_20240201_185400.png)
 
+#### semantic segmentation
+
+##### Masked-attention Mask Transformer for Universal Image Segmentation
+<a href="https://arxiv.org/pdf/2112.01527.pdf"></a>
+
+- Unify pan-optic, instance, semantic segmentation
+- ![image_20240201_225400.png](image_20240201_225400.png)
+
+Masks are learned through training.
 
 
 
