@@ -15,6 +15,7 @@
                 topic="Filter-Pruning-via-Geometric-Median-for-Deep-Convolutional-Neural-Networks-Acceleration.md"/>
         <toc-element topic="ResRep-Lossless-CNN-Pruning-via-Decoupling-Remembering-and-Forgetting.md"/>
         <toc-element topic="RepVGG-Making-VGG-style-ConvNets-Great-Again.md"/>
+        <toc-element topic="RepViT-Revisiting-Mobile-CNN-From-ViT-Perspective.md"/>
     </toc-element>
     <toc-element topic="Classics.md">
         <toc-element topic="MobileNetv1-v3.md"/>
