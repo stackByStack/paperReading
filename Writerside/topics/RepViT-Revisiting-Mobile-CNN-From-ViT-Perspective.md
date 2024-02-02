@@ -57,8 +57,41 @@ the model on image classification in supervised fashion.
 
 Masks are learned through training.
 
+##### SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers
 
+<a href="https://arxiv.org/pdf/2105.15203.pdf"></a>
 
+![image_20240202_093400.png](image_20240202_093400.png)
+
+#### Object Detection
+##### End-to-End Object Detection with Transformers
+
+![image_20240202_102800.png](image_20240202_102800.png)
+
+##### MViTv2: Improved Multi-scale Vision Transformers for Classification and Detection
+![image_20240202_110000.png](image_20240202_110000.png)
+
+![image_20240202_110300.png](image_20240202_110300.png)
+
+### Enhancing Computational Efficiency of Vision Transformers for Mobile Devices through Effective Design Principles
+
+#### Mobile-Former: Bridging MobileNet and Transformer
+![image_20240202_205700.png](image_20240202_205700.png)
+
+![image_20240202_210500.png](image_20240202_210500.png)
+#### Rethinking vision transformers for mobilenet size and speed.
+
+- proposed EfficientFormerV2
+- Token Mixers
+- Search Space Refinement
+- MHSA Improvements
+- Attention on Higher Resolution
+- Dual-Path Attention Down sampling (CNN + Attention Parallel Computation and Sum)
+
+#### MOBILEVIT: LIGHT-WEIGHT, GENERAL-PURPOSE, AND MOBILE-FRIENDLY VISION TRANSFORMER
+![image_20240202_221300.png](image_20240202_221300.png)
+- No need for patch embedding 
+- 
 
 
 
