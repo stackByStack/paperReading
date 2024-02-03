@@ -24,6 +24,7 @@
         <toc-element topic="BERT.md"/>
     </toc-element>
     <toc-element topic="Trick.md">
+        <toc-element topic="Data-Augmentation.md"/>
         <toc-element topic="Group-Shuffle.md"/>
         <toc-element topic="BatchNorm.md"/>
     </toc-element>

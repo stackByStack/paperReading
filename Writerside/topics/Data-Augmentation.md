@@ -1,0 +1,7 @@
+# Data Augmentation
+
+- Auto-augmentation: Auto-augmentation is a data augmentation technique used to increase the diversity and size of a machine learning dataset, thus improving the generalization capabilities of a model. It works by automatically searching for optimal image augmentation policies that are tailored for a specific dataset. A wide range of transformations, including shifts, flips, zooms, and color changes, can be applied to existing images in the dataset, effectively increasing the number of training examples.
+
+- Random Erasing: Random erasing is another data augmentation technique that operates by randomly choosing a rectangular area within a training image and filling this space with random pixel values. It aims to push the model's adaptability by forcing it to learn not only from the primary objects or features within an image, but also from the context information surrounding them. This helps the model to become resilient towards occlusion in real-world scenarios.
+
+- MixUp: MixUp is a data augmentation strategy where two random images from the training dataset are blended together to generate pseudo-images. Paired with the images, labels are also blended using the same proportion. It smooths out the decision boundaries of the model and also helps to expand the training dataset. By presenting entities' combinations during training, Mixup encourages the model to predict more realistically when faced with unseen or ambiguous data. Using Mixup often leads to improved model robustness and generalization capabilities.

@@ -122,7 +122,31 @@ structure, but is composed entirely of convolutions.
 ![Generic Architecture](image_20240203_171100.png)
 
 ## Methodology
+### Preliminary
+-  We utilize the iPhone
+12 as the test device and Core ML Tools as the compiler.
 
+- We measure the actual **on-device latency** for models
+as the benchmark metric.
+- employ GeLU activations in the MobileNetV3-L model
+
+![image_20240203_232700.png](image_20240203_232700.png)
+
+<a href="Data-Augmentation.md">Details about data-augmentation trick mentioned above</a>
+
+### Block Design
+![image_20240204_000500.png](image_20240204_000500.png){thumbnail="true"}
+
+![image_20240204_000600.png](image_20240204_000600.png)
+
+1x1 expansion is typically used to increase the number of channels in the feature maps,
+while the 1x1 projection convolution is used for dimensionality reduction.
+The combination of them is **channel mixer**.
+
+And the depth-wise convolution is **token mixer**.
+
+The squeeze and excitation module is also
+moved up to be placed after the depth-wise filters, as it **depends on spatial information interaction**.
 
 
 
