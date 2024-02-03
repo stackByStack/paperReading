@@ -90,8 +90,44 @@ Masks are learned through training.
 
 #### MOBILEVIT: LIGHT-WEIGHT, GENERAL-PURPOSE, AND MOBILE-FRIENDLY VISION TRANSFORMER
 ![image_20240202_221300.png](image_20240202_221300.png)
-- No need for patch embedding 
-- 
+- No need for patch embedding
+
+#### EdgeViTs: Competing Light-weight CNNs on Mobile Devices with Vision Transformers
+![image_20240203_1005.png](image_20240203_1005.png)
+
+![image_20240203_1007.png](image_20240203_1007.png)
+
+#### Separable Self-attention for Mobile Vision Transformers: MobileViTv2
+
+![image_20240203_103900.png](image_20240203_103900.png){thumbnail="true"}
+
+![image_20240203_105900.png](image_20240203_105900.png)
+
+### Summary 
+- In this work, we
+revisit the design of lightweight CNNs **by incorporating
+the architectural choices** of lightweight ViTs. 
+- Our research
+aims to narrow the divide between lightweight CNNs and
+lightweight ViTs, and highlight the potential of **the former
+for employment on mobile devices** compared to the latter.
+
+we begin with a standard lightweight CNN, i.e., MobileNetV3-
+L. We gradually “modernize” its architecture by incorporating the efficient architectural designs of lightweight
+ViTs 
+
+RepViT has a MetaFormer 
+structure, but is composed entirely of convolutions.
+
+![Generic Architecture](image_20240203_171100.png)
+
+## Methodology
+
+
+
+
+
+
 
 
 

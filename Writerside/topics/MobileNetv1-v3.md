@@ -9,3 +9,5 @@ MobileNet, a series of TensorFlow-based computer vision models, has evolved thro
 <a href="https://zhuanlan.zhihu.com/p/98874284">Details about inverted residuals and linear bottlenecks</a>
 
 3. MobileNet V3: The concepts used in MobileNet V3 are an amalgamation of the innovations from the previous versions and novel technology advancements like **hardware-aware network architecture search (NAS)**. This version significantly improves the model’s performance in both speed and accuracy.
+
+<a href="https://zhuanlan.zhihu.com/p/323346888">Details about Mob v3</a>
