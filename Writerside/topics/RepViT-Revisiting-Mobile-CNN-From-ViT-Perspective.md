@@ -148,9 +148,55 @@ And the depth-wise convolution is **token mixer**.
 The squeeze and excitation module is also
 moved up to be placed after the depth-wise filters, as it **depends on spatial information interaction**.
 
+Reducing the expansion ratio and increasing width
 
+### Macro design
 
+![image_20240204_110300.png](image_20240204_110300.png)
 
+**patchifying operation** results in ViTs’ substandard optimizability and sensitivity to
+training recipes.
+To address these issues, they suggest using **a small number of stacked stride-2 3*3 convolutions**
+as an alternative architectural choice for the stem, known as
+**early convolutions**.
+
+#### **Deeper down-sampling layers.**
+
+![image_20240204_114100.png](image_20240204_114100.png)
+
+#### **Simple classifier.**
+
+![image_20240204_114700.png](image_20240204_114700.png)
+
+#### **Overall stage ratio**
+
+Stage ratio represents the ratio of
+the number of blocks in different stages, thereby indicating the distribution of computation across the stages
+
+The
+original stage ratio of MobileNetV3-L is **1:2:5:2.**
+Therefore, we follow [19] to employ a more optimal stage ratio
+of **1:1:7:1** for the network.
+We then increase the network
+depth to **2:2:14:2**, achieving a deeper layout [19, 24].
+This
+step increases the top-1 accuracy to 76.9% with a latency of
+0.91ms.
+
+### Micro design
+#### Kernel size selection
+large kernel-sized convolution is not
+friendly for mobile devices, due to its computation complexity and memory access costs.
+
+#### Squeeze-and-excitation layer placement
+
+### Network architecture
+We develop multiple RepViT variants,
+including RepViT-M0.9/M1.0/M1.1/M1.5/M2.3.
+The suffix “-MX” means that **the latency of the model is Xms**.
+RepViT-M0.9 is the outcome of the “modernizing” process
+applied to MobileNetV3-L. The different variants are distinguished by the number of **channels** and the number of
+**blocks** within each stage.
 
 
 
