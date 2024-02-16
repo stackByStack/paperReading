@@ -142,6 +142,8 @@ recovered and prevents the model from losing the representation ability early in
 
 ## Methodology
 
+### Overview
+
 ![image_20240215_193200.png](image_20240215_193200.png)
 
 ![image_20240216_002010.png](image_20240216_002010.png)
@@ -150,6 +152,68 @@ recovered and prevents the model from losing the representation ability early in
 \epsilon_{j}^{l}=\|\mathbf{w}_{j}^{l}-\mathbf{w}_{\mathcal{T}^{l}}^{l}(\mathbf{w}_{\mathcal{T}^{l}}^{l^{T}}\mathbf{w}_{\mathcal{T}^{l}}^{l})^{\dagger}\mathbf{w}_{\mathcal{T}^{l}}^{l^{T}}\mathbf{w}_{j}^{l}\|_{2}^{2}
 ```
 
+###  Channel regrowing stage
+
+- Definition: Channel orthogonality measures the **linear independence** between a candidate channel and the active channels in a neural network layer.
+
+- Calculation: Orthogonality $\epsilon_{j}^{l}$ is computed using the orthogonal projection formula, quantifying the **distance** between the **candidate channel** and the **_subspace spanned by active channels_**.
+
+- Importance-Sampling Probabilities: Probabilities $p_j^l$ are derived from orthogonality scores, guiding the selection of channels for regrowing. Higher orthogonality yields higher probabilities.
+
+- Importance Sampling: Channels are selected for regrowing using importance sampling, favoring those with greater orthogonality to ensure diversity.
+
+- Regrowing Channels: Selected channels are regrown and added to the layer, contributing to diversity and improving neural network performance.
+
+
+In the regrowing stage, we employ a **cosine decay scheduler** to gradually reduce the number of regrown channels so
+that the sub-model converges to the target channel sparsity at
+the end of training.
+Specifically, the regrowing factor at t-th
+step is computed as: 
+
+```tex
+\delta_{t}=\frac{1}{2}\left(1+\cos\left(\frac{t\cdot\pi}{T_{\max}/\Delta T}\right)\right)\delta_{0}.
+```
+
+denotes the where $\delta_{0}$ is the initial regrowing factor, $T_max$ denotes the
+total exploration steps, and $\Delta T$ represents the frequency to N
+invoke the pruning-regrowing steps.
+
+### Sub-model structure exploration
+> Some layers are more important to the
+model accuracy and more channels need to be preserved,
+> while some other layers may contain excessive number of
+channels. 
+>
+
+Denote the BN scaling factors of all channels across
+all layers by
+
+```tex
+\Gamma=\{\gamma^{1},...,\gamma^{L}\},\gamma^{l}\in\mathbb{R}^{C^{l}}
+```
+
+and the overall
+target channel sparsity by **S**.
+
+We calculate the layer-wise
+pruning ratios by ranking all scaling factors in descending
+order and preserving the top **1 − S** percent of the channels.
+
+Then, the sparsity κ_
+l
+for layer l is given as:
+
+```Tex
+\kappa^{l}=(\sum_{j\in[C^{l}]}\mathbb{1}_{\{\gamma_{j}^{l}\leq q(\Gamma,S)\}})/C^{l},l\in[L]
+```
+
+q(Γ, S) represents the S-th percentile of all the
+scaling factors Γ
+
+## Theoretical Justification
+
+![image_20240216_120700.png](image_20240216_120700.png)
 
 
 
