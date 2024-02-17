@@ -18,6 +18,7 @@
         <toc-element topic="RepViT-Revisiting-Mobile-CNN-From-ViT-Perspective.md"/>
         <toc-element topic="EagleEye-Fast-Sub-net-Evaluation-for-Efficient-Neural-Network-Pruning.md"/>
         <toc-element topic="CHEX-CHannel-EXploration-for-CNN-Model-Compression.md"/>
+        <toc-element topic="ThiNet-A-Filter-Level-Pruning-Method-for-Deep-Neural-Network-Compression.md"/>
     </toc-element>
     <toc-element topic="Classics.md">
         <toc-element topic="MobileNetv1-v3.md"/>
@@ -25,6 +26,7 @@
                 topic="Comparative-Analysis-of-Classic-Convolutional-Neural-Networks-VGG-Inception-ResNet-and-DenseNet.md"/>
         <toc-element topic="BERT.md"/>
     </toc-element>
+    <toc-element topic="R-CNN.md"/>
     <toc-element topic="Trick.md">
         <toc-element topic="Data-Augmentation.md"/>
         <toc-element topic="Group-Shuffle.md"/>
