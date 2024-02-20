@@ -19,6 +19,7 @@
         <toc-element topic="EagleEye-Fast-Sub-net-Evaluation-for-Efficient-Neural-Network-Pruning.md"/>
         <toc-element topic="CHEX-CHannel-EXploration-for-CNN-Model-Compression.md"/>
         <toc-element topic="ThiNet-A-Filter-Level-Pruning-Method-for-Deep-Neural-Network-Compression.md"/>
+        <toc-element topic="Accelerating-Convolutional-Networks-via-Global-Dynamic-Filter-Pruning.md"/>
     </toc-element>
     <toc-element topic="Classics.md">
         <toc-element topic="MobileNetv1-v3.md"/>
