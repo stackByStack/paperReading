@@ -1,4 +1,4 @@
-# Pruning & Quantization
+# Pruning
 
 <a href="DepGraph-Towards-Any-Structural-Pruning.md"></a>
 
