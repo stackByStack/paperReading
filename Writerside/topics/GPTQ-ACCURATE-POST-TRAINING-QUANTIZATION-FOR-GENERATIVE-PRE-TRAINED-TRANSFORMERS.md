@@ -10,7 +10,7 @@
 ## Introduction
 - <a href="https://zhuanlan.zhihu.com/p/424631681">Byte Pair Encoding</a>
 
-- <a href="https://zhuanlan.zhihu.com/p/569694801">A Survey of Quantization Methods for Efficient Neural Network Inference</a>
+- <a href="https://zhuanlan.zhihu.com/p/569694801">Reading Note of A Survey of Quantization Methods for Efficient Neural Network Inference</a>
 
 - 
 
