@@ -15,7 +15,15 @@ Two metrics named
 **low-frequency sensitivity** (LFS) and **low-frequency energy** (LFE) are proposed
 for better channel pruning and token pruning.
 
+## Introduction
+Token pruning based on low-frequency energy:
+Token compression/sampling aims to select the informative tokens that store **more useful information**.
 
+The _popular methods_ dynamically select those tokens with high correlation to other tokens (e.g. the
+CLS token) as the informative tokens.
+However, it may be sub-optimal because the selected tokens
+tend to be similar to each other, and the information included in the token itself has been neglected to
+some extent.
 
 
 
