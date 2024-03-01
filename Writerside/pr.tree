@@ -21,6 +21,7 @@
         <toc-element topic="ThiNet-A-Filter-Level-Pruning-Method-for-Deep-Neural-Network-Compression.md"/>
         <toc-element topic="Accelerating-Convolutional-Networks-via-Global-Dynamic-Filter-Pruning.md"/>
         <toc-element topic="VTC-LFC-Vision-Transformer-Compression-with-Low-Frequency-Components.md"/>
+        <toc-element topic="DynamicViT-Efficient-Vision-Transformers-with-Dynamic-Token-Sparsification.md"/>
     </toc-element>
     <toc-element topic="Quantization.md">
         <toc-element topic="GPTQ-ACCURATE-POST-TRAINING-QUANTIZATION-FOR-GENERATIVE-PRE-TRAINED-TRANSFORMERS.md"/>
