@@ -235,6 +235,64 @@ attention maps**.
 
 ![image._20240308_001200.png](image._20240308_001200.png)
 
+Moreover, following the purpose of 
+<a href="https://arxiv.org/abs/2106.14156">ranking-aware loss</a>
+[Liu et al., 2021b], log2 quantization can retain much
+**order consistency** between full precision and quantized attention maps.
+
+
+Firstly,
+the fixed output range (0, 1) of Softmax makes the log2 function calibration-free:
+
+```tex
+\operatorname{Attn}_{\mathrm{Q}}=\mathrm{Q}(\operatorname{Attn} \mid b)=\operatorname{clip}\left(\left\lfloor-\log _{2}(\operatorname{Attn})\right\rceil, 0,2^{b}-1\right)
+```
+
+This ensures that the quantization of attention maps will **not**
+be affected by the **fluctuation** of **_calibration data_**.
+
+Secondly, it also introduces the merits of **converting
+the MatMul to BitShift** between the quantized attention
+map (AttnQ) and values (VQ) as:
+
+```tex
+\begin{aligned} \operatorname{Attn} \cdot \mathrm{V}_{\mathrm{Q}} & =2^{-\operatorname{Attn}_{\mathrm{Q}}} \cdot \mathrm{V}_{\mathrm{Q}}=\mathrm{V}_{\mathrm{Q}}>>\operatorname{Attn}_{\mathrm{Q}} \\ & =\frac{1}{2^{N}} \cdot\left(\mathrm{V}_{\mathrm{Q}}<<\left(\mathrm{N}-\operatorname{Attn}_{\mathrm{Q}}\right)\right)\end{aligned}
+```
+
+with N = 2 ^ b - 1.
+
+Noticing that **directly right shift** VQ with
+the results of AttnQ may lead to **severe truncation error**,
+
+#### Integer-only Inference
+
+However, data moving between CPU and GPU/NPU,
+doing **dequantization** and **requantization**, will induce great
+difficulties in hardware design, which is **not** a negligible consumption.
+
+![image_20240308_115800.png](image_20240308_115800.png)
+
+Combining log2 quantization with **i-exp** [Kim et al., 2021],
+which is a polynomial approximation of exponential function,
+we propose Log-Int-Softmax, an integer-only, faster, low consuming Softmax:
+
+```tex
+\begin{array}{c}\exp \left(s \cdot \mathrm{X}_{\mathrm{Q}}\right) \approx s^{\prime} \cdot \mathrm{i}-\exp \left(\mathrm{X}_{\mathrm{Q}}\right) \\ \mathrm{LIS}\left(s \cdot \mathrm{X}_{\mathrm{Q}}\right)=\mathrm{N}-\log _{2}\left\lfloor\frac{\sum \mathrm{i}-\exp \left(\mathrm{X}_{\mathrm{Q}}\right)}{\mathrm{i}-\exp \left(\mathrm{X}_{\mathrm{Q}}\right)}\right\rceil\end{array}
+```
+
+with N = 2 ^ b − 1
+
+> **integer-only softmax**
+> 
+> <a href="https://arxiv.org/pdf/2101.01321.pdf">3.5. Integer-only Softmax</a>
+> 1. limiting the approximation range of Softmax;
+> 2. polynomial approximation
+
+
+
+
+
+
 
 
 
