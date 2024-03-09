@@ -27,6 +27,7 @@
         <toc-element topic="TOKEN-MERGING-YOUR-VIT-BUT-FASTER.md"/>
     </toc-element>
     <toc-element topic="Quantization.md">
+        <toc-element topic="Post-Training-Quantization-for-Vision-Transformer.md"/>
         <toc-element topic="FQ-ViT-Post-Training-Quantization-for-Fully-Quantized-Vision-Transformer.md"/>
         <toc-element topic="GPTQ-ACCURATE-POST-TRAINING-QUANTIZATION-FOR-GENERATIVE-PRE-TRAINED-TRANSFORMERS.md"/>
     </toc-element>
