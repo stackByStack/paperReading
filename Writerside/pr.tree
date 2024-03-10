@@ -39,6 +39,8 @@
         <toc-element topic="R-CNN.md"/>
     </toc-element>
     <toc-element topic="Trick.md">
+        <toc-element topic="Rotary-Positional-Embedding.md"/>
+        <toc-element topic="Linear-Probe.md"/>
         <toc-element topic="Recent-Advancements-in-ViT-Tokenization.md"/>
         <toc-element topic="Data-Augmentation.md"/>
         <toc-element topic="Group-Shuffle.md"/>
